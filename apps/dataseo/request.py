@@ -23,7 +23,8 @@ def request(keyword, **kwargs):
 	}
 	try:
 		response = requests.request("POST", DATAFORSEO_URL, **attrs)
-		return response.json()
+		if response.status_code == 200:
+			return response.json()
 	except exceptions.ConnectionError:
 		logger.exception("ConnectionError occured")
 	except exceptions.Timeout:
@@ -36,4 +37,5 @@ def request(keyword, **kwargs):
 		logger.exception(f"DATAFORSEO server API response data is not JSON decodable.\n data: {response.text}\nTraceback: {traceback.format_exc()}")
 	except Exception as exp:
 		logger.exception("Error occured while connecting to DATAFORSEO server.\nReason:{exp}\nTraceback: {traceback.format_exc()}")
-		raise Exception
+
+	return None
