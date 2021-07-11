@@ -1,3 +1,8 @@
+apps/config/credentials.py
+apps/config/gcp_credentials.json
+_help_files/
+
+
 # Temporary and binary files
 *~
 *.py[cod]
