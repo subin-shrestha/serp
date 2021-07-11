@@ -29,7 +29,6 @@ if __name__ == "__main__":
 		items = result.get('items') or []
 		results = []
 
-		import pdb;pdb.set_trace()
 		for item in items[:10]:
 			results.append({
 				'id': uuid.uuid4().hex,
